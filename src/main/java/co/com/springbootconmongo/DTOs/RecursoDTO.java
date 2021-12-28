@@ -1,20 +1,19 @@
-package co.com.springbootconmongo.Models;
-
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+package co.com.springbootconmongo.DTOs;
 
 import java.util.Date;
 
-@Document(collection = "Recurso")
-public class Recurso {
+public class RecursoDTO {
 
-    @Id
     private String id;
     private String nombre;
     private String tipo;
     private String tematica;
     private boolean prestado;
     private Date fechaPrestamo;
+
+    public RecursoDTO() {
+
+    }
 
     public String getId() {
         return id;
