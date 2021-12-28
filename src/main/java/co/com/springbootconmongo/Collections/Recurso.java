@@ -1,4 +1,4 @@
-package co.com.springbootconmongo.Models;
+package co.com.springbootconmongo.Collections;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
