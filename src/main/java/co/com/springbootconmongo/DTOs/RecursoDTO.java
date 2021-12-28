@@ -1,7 +1,5 @@
 package co.com.springbootconmongo.DTOs;
 
-import java.util.Date;
-
 public class RecursoDTO {
 
     private String id;
@@ -9,7 +7,7 @@ public class RecursoDTO {
     private String tipo;
     private String tematica;
     private boolean prestado;
-    private Date fechaPrestamo;
+    private String fechaPrestamo;
 
     public RecursoDTO() {
 
@@ -55,11 +53,11 @@ public class RecursoDTO {
         this.prestado = prestado;
     }
 
-    public Date getFechaPrestamo() {
+    public String getFechaPrestamo() {
         return fechaPrestamo;
     }
 
-    public void setFechaPrestamo(Date fechaPrestamo) {
+    public void setFechaPrestamo(String fechaPrestamo) {
         this.fechaPrestamo = fechaPrestamo;
     }
 }

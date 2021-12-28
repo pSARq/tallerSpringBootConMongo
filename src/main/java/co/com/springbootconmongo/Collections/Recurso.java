@@ -3,8 +3,6 @@ package co.com.springbootconmongo.Collections;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Date;
-
 @Document(collection = "Recurso")
 public class Recurso {
 
@@ -14,7 +12,7 @@ public class Recurso {
     private String tipo;
     private String tematica;
     private boolean prestado;
-    private Date fechaPrestamo;
+    private String fechaPrestamo;
 
     public String getId() {
         return id;
@@ -56,11 +54,11 @@ public class Recurso {
         this.prestado = prestado;
     }
 
-    public Date getFechaPrestamo() {
+    public String getFechaPrestamo() {
         return fechaPrestamo;
     }
 
-    public void setFechaPrestamo(Date fechaPrestamo) {
+    public void setFechaPrestamo(String fechaPrestamo) {
         this.fechaPrestamo = fechaPrestamo;
     }
 }
