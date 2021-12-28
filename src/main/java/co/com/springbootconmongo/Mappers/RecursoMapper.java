@@ -31,7 +31,7 @@ public class RecursoMapper {
         return recursoDTO;
     }
 
-    public List<RecursoDTO> fromCollection(List<Recurso> collection){
+    public List<RecursoDTO> fromCollectionList(List<Recurso> collection){
         if (collection == null){
             return null;
         }

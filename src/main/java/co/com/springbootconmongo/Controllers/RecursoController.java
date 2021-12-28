@@ -18,4 +18,9 @@ public class RecursoController {
     public ResponseEntity<RecursoDTO> crearRecurso(@RequestBody RecursoDTO dto){
         return new ResponseEntity(recursoService.crearRecurso(dto), HttpStatus.CREATED);
     }
+
+    @GetMapping()
+    public ResponseEntity<RecursoDTO> obtenerRecursos(){
+        return new ResponseEntity(recursoService.obtenerRecursos(), HttpStatus.OK);
+    }
 }

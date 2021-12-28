@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 
 @Service
 public class RecursoService {
@@ -22,8 +23,9 @@ public class RecursoService {
         return mapper.fromCollection(repository.save(recurso));
     }
 
-    public RecursoDTO obtenerRecursos(RecursoDTO dto){
-        
+    public List<RecursoDTO> obtenerRecursos(){
+        List<Recurso> recursos = (List<Recurso>) repository.findAll();
+        return mapper.fromCollectionList(recursos);
     }
 
 }
