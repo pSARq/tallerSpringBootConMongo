@@ -58,4 +58,12 @@ public class RecursoController {
         return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
 
+    @GetMapping("/tematica/{tematica}")
+    public ResponseEntity<RecursoDTO> colsultarPorTematica(@PathVariable("tematica") String tematica){
+        if (tematica != null){
+            return new ResponseEntity(recursoService.colsultarPorTematica(tematica), HttpStatus.OK);
+        }
+        return new ResponseEntity(HttpStatus.NOT_FOUND);
+    }
+
 }

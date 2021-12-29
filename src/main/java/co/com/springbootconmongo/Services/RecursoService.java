@@ -58,4 +58,10 @@ public class RecursoService {
         return "El recurso no se encuentra disponible en este momento";
     }
 
+    public List<RecursoDTO> colsultarPorTematica(String tematica){
+        List<Recurso> recursos = (List<Recurso>) repository.findByTematicaIn(tematica);
+        return mapper.fromCollectionList(recursos);
+    }
+    
+
 }
