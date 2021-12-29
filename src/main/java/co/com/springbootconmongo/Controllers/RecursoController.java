@@ -42,4 +42,12 @@ public class RecursoController {
         }
     }
 
+    @GetMapping("/disponible/{id}")
+    public ResponseEntity<String> consultarDisponibilidad(@PathVariable("id") String id){
+        if (id != null){
+            return new ResponseEntity(recursoService.consultarDisponibilidad(id), HttpStatus.OK);
+        }
+        return new ResponseEntity(HttpStatus.NOT_FOUND);
+    }
+
 }

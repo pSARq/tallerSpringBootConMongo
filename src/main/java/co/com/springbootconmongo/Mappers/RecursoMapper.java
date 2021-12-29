@@ -15,7 +15,7 @@ public class RecursoMapper {
         recurso.setNombre(dto.getNombre());
         recurso.setTipo(dto.getTipo());
         recurso.setTematica(dto.getTematica());
-        recurso.setPrestado(dto.isPrestado());
+        recurso.setDisponible(dto.isDisponible());
         recurso.setFechaPrestamo(dto.getFechaPrestamo());
         return recurso;
     }
@@ -26,7 +26,7 @@ public class RecursoMapper {
         recursoDTO.setNombre(collection.getNombre());
         recursoDTO.setTipo(collection.getTipo());
         recursoDTO.setTematica(collection.getTematica());
-        recursoDTO.setPrestado(collection.isPrestado());
+        recursoDTO.setDisponible(collection.isDisponible());
         recursoDTO.setFechaPrestamo(collection.getFechaPrestamo());
         return recursoDTO;
     }

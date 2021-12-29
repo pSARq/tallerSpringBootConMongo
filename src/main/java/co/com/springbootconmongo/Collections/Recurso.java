@@ -11,7 +11,7 @@ public class Recurso {
     private String nombre;
     private String tipo;
     private String tematica;
-    private boolean prestado;
+    private boolean disponible;
     private String fechaPrestamo;
 
     public String getId() {
@@ -46,12 +46,12 @@ public class Recurso {
         this.tematica = tematica;
     }
 
-    public boolean isPrestado() {
-        return prestado;
+    public boolean isDisponible() {
+        return disponible;
     }
 
-    public void setPrestado(boolean prestado) {
-        this.prestado = prestado;
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
     }
 
     public String getFechaPrestamo() {

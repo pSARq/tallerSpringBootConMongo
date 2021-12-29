@@ -37,4 +37,23 @@ public class RecursoService {
         repository.deleteById(id);
     }
 
+    /*
+    public String consultarDisponibilidad(RecursoDTO dto){
+        Recurso recurso = mapper.fromDTO(dto);
+        Recurso elemento = repository.findById(recurso.getId()).orElseThrow(() -> new RuntimeException("Recurso no encontrado"));
+        if (elemento.isDisponible(){
+            return "Esta disponible";
+        }
+        return elemento.getFechaPrestamo();
+    }
+     */
+
+    public String consultarDisponibilidad(String id){
+        Recurso elemento = repository.findById(id).orElseThrow(() -> new RuntimeException("Recurso no encontrado"));
+        if (elemento.isDisponible()){
+            return "Esta disponible";
+        }
+        return elemento.getFechaPrestamo();
+    }
+
 }
