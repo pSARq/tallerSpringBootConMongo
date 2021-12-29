@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface RecursoRepository extends MongoRepository<Recurso, String> {
     List<Recurso> findByTematicaIn(String tematica);
+    List<Recurso> findByTipoIn(String tipo);
 }

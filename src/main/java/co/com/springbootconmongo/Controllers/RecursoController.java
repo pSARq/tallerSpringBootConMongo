@@ -61,7 +61,7 @@ public class RecursoController {
     @GetMapping("/tematica/{tematica}")
     public ResponseEntity<RecursoDTO> colsultarPorTematica(@PathVariable("tematica") String tematica){
         if (tematica != null){
-            return new ResponseEntity(recursoService.colsultarPorTematica(tematica), HttpStatus.OK);
+            return new ResponseEntity(recursoService.consultarPorTematica(tematica), HttpStatus.OK);
         }
         return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
@@ -70,6 +70,14 @@ public class RecursoController {
     public ResponseEntity<String> devolverRecurso(@RequestBody RecursoDTO dto){
         if (dto.getId() != null){
             return new ResponseEntity(recursoService.devolverRecurso(dto), HttpStatus.OK);
+        }
+        return new ResponseEntity(HttpStatus.NOT_FOUND);
+    }
+
+    @GetMapping("/tipo/{tipo}")
+    public ResponseEntity<RecursoDTO> colsultarPorTipo(@PathVariable("tipo") String tipo){
+        if (tipo != null){
+            return new ResponseEntity(recursoService.consultarPorTipo(tipo), HttpStatus.OK);
         }
         return new ResponseEntity(HttpStatus.NOT_FOUND);
     }

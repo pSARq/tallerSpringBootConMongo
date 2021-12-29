@@ -59,11 +59,11 @@ public class RecursoService {
         return "El recurso no se encuentra disponible en este momento";
     }
 
-    public List<RecursoDTO> colsultarPorTematica(String tematica){
+    public List<RecursoDTO> consultarPorTematica(String tematica){
         List<Recurso> recursos = (List<Recurso>) repository.findByTematicaIn(tematica);
         return mapper.fromCollectionList(recursos);
     }
-    
+
     public String devolverRecurso(RecursoDTO dto){
         Recurso recurso = mapper.fromDTO(dto);
         Recurso elemento = repository.findById(recurso.getId()).orElseThrow(() -> new RuntimeException("Recurso no encontrado"));
@@ -74,6 +74,11 @@ public class RecursoService {
             return "Recurso devuelto con exito";
         }
         return "El recurso no ha sido prestado";
+    }
+
+    public List<RecursoDTO> consultarPorTipo(String tipo){
+        List<Recurso> recursos = (List<Recurso>) repository.findByTipoIn(tipo);
+        return mapper.fromCollectionList(recursos);
     }
 
 }
