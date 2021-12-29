@@ -31,4 +31,15 @@ public class RecursoController {
         }
         return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
+
+    @DeleteMapping("/borrar/{id}")
+    public ResponseEntity borrar(@PathVariable("id") String id){
+        try {
+            recursoService.borrar(id);
+            return new ResponseEntity(HttpStatus.OK);
+        } catch (Exception e){
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
+    }
+
 }

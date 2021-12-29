@@ -7,8 +7,7 @@ import co.com.springbootconmongo.Repositories.RecursoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+
 import java.util.List;
 
 @Service
@@ -32,6 +31,10 @@ public class RecursoService {
         Recurso recurso = mapper.fromDTO(dto);
         repository.findById(recurso.getId()).orElseThrow(() -> new RuntimeException("Recurso no encontrado"));
         return mapper.fromCollection(repository.save(recurso));
+    }
+
+    public void borrar(String id){
+        repository.deleteById(id);
     }
 
 }
