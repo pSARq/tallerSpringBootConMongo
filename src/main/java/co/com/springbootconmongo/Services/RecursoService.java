@@ -52,8 +52,9 @@ public class RecursoService {
         Recurso elemento = repository.findById(recurso.getId()).orElseThrow(() -> new RuntimeException("Recurso no encontrado"));
         if (elemento.isDisponible()){
             recurso.setFechaPrestamo(new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime()));
+            recurso.setDisponible(false);
             repository.save(recurso);
-            return "Prestamos realizado con exito";
+            return "Prestamos realizado con éxito";
         }
         return "El recurso no se encuentra disponible en este momento";
     }
@@ -63,5 +64,16 @@ public class RecursoService {
         return mapper.fromCollectionList(recursos);
     }
     
+    public String devolverRecurso(RecursoDTO dto){
+        Recurso recurso = mapper.fromDTO(dto);
+        Recurso elemento = repository.findById(recurso.getId()).orElseThrow(() -> new RuntimeException("Recurso no encontrado"));
+        if (elemento.isDisponible() == false){
+            recurso.setFechaPrestamo(null);
+            recurso.setDisponible(true);
+            repository.save(recurso);
+            return "Recurso devuelto con exito";
+        }
+        return "El recurso no ha sido prestado";
+    }
 
 }
