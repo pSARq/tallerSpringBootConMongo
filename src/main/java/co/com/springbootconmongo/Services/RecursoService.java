@@ -71,7 +71,7 @@ public class RecursoService {
             recurso.setFechaPrestamo(null);
             recurso.setDisponible(true);
             repository.save(recurso);
-            return "Recurso devuelto con exito";
+            return "Recurso devuelto con éxito";
         }
         return "El recurso no ha sido prestado";
     }
