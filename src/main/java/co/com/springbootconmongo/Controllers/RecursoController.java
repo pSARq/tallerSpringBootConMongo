@@ -23,4 +23,12 @@ public class RecursoController {
     public ResponseEntity<RecursoDTO> obtenerRecursos(){
         return new ResponseEntity(recursoService.obtenerRecursos(), HttpStatus.OK);
     }
+
+    @PutMapping("/modificar")
+    public ResponseEntity<RecursoDTO>  modificar(@RequestBody RecursoDTO dto){
+        if (dto.getId() != null){
+            return new ResponseEntity(recursoService.modificar(dto), HttpStatus.OK);
+        }
+        return new ResponseEntity(HttpStatus.NOT_FOUND);
+    }
 }

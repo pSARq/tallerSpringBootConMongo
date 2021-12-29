@@ -28,4 +28,10 @@ public class RecursoService {
         return mapper.fromCollectionList(recursos);
     }
 
+    public RecursoDTO modificar(RecursoDTO dto){
+        Recurso recurso = mapper.fromDTO(dto);
+        repository.findById(recurso.getId()).orElseThrow(() -> new RuntimeException("Recurso no encontrado"));
+        return mapper.fromCollection(repository.save(recurso));
+    }
+
 }
