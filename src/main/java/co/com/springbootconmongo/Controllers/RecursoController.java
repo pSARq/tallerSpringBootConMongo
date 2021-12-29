@@ -50,10 +50,10 @@ public class RecursoController {
         return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping("/prestar/{id}")
-    public ResponseEntity<String> prestarRecurso(@PathVariable("id") String id){
-        if (id != null){
-            return new ResponseEntity(recursoService.prestarRecurso(id), HttpStatus.OK);
+    @PutMapping("/prestar")
+    public ResponseEntity<String>  prestarRecurso(@RequestBody RecursoDTO dto){
+        if (dto.getId() != null){
+            return new ResponseEntity(recursoService.prestarRecurso(dto), HttpStatus.OK);
         }
         return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
