@@ -58,18 +58,18 @@ public class RecursoController {
         return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping("/tematica/{tematica}")
-    public ResponseEntity<RecursoDTO> colsultarPorTematica(@PathVariable("tematica") String tematica){
-        if (tematica != null){
-            return new ResponseEntity(recursoService.consultarPorTematica(tematica), HttpStatus.OK);
-        }
-        return new ResponseEntity(HttpStatus.NOT_FOUND);
-    }
-
     @PutMapping("/devolver")
     public ResponseEntity<String> devolverRecurso(@RequestBody RecursoDTO dto){
         if (dto.getId() != null){
             return new ResponseEntity(recursoService.devolverRecurso(dto), HttpStatus.OK);
+        }
+        return new ResponseEntity(HttpStatus.NOT_FOUND);
+    }
+
+    @GetMapping("/tematica/{tematica}")
+    public ResponseEntity<RecursoDTO> colsultarPorTematica(@PathVariable("tematica") String tematica){
+        if (tematica != null){
+            return new ResponseEntity(recursoService.consultarPorTematica(tematica), HttpStatus.OK);
         }
         return new ResponseEntity(HttpStatus.NOT_FOUND);
     }

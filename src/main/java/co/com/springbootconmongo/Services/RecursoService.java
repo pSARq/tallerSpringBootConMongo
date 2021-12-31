@@ -54,14 +54,9 @@ public class RecursoService {
             recurso.setFechaPrestamo(new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime()));
             recurso.setDisponible(false);
             repository.save(recurso);
-            return "Prestamos realizado con éxito";
+            return "Prestamo realizado con éxito";
         }
         return "El recurso no se encuentra disponible en este momento";
-    }
-
-    public List<RecursoDTO> consultarPorTematica(String tematica){
-        List<Recurso> recursos = (List<Recurso>) repository.findByTematicaIn(tematica);
-        return mapper.fromCollectionList(recursos);
     }
 
     public String devolverRecurso(RecursoDTO dto){
@@ -74,6 +69,11 @@ public class RecursoService {
             return "Recurso devuelto con éxito";
         }
         return "El recurso no ha sido prestado";
+    }
+
+    public List<RecursoDTO> consultarPorTematica(String tematica){
+        List<Recurso> recursos = (List<Recurso>) repository.findByTematicaIn(tematica);
+        return mapper.fromCollectionList(recursos);
     }
 
     public List<RecursoDTO> consultarPorTipo(String tipo){
