@@ -1,13 +1,11 @@
 package co.com.springbootconmongo.Controllers;
 
-import co.com.springbootconmongo.Collections.Recurso;
 import co.com.springbootconmongo.DTOs.RecursoDTO;
 import co.com.springbootconmongo.Repositories.RecursoRepository;
 import co.com.springbootconmongo.Services.RecursoService;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.assertj.core.util.Lists;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -16,13 +14,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -37,9 +30,6 @@ class RecursoControllerTest {
 
     @MockBean
     private RecursoService service;
-
-    @MockBean
-    private RecursoRepository repository;
 
     @Autowired
     private MockMvc mockMvc;
